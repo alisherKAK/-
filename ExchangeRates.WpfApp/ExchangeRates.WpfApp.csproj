@@ -93,5 +93,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ExchangeRates.Models\ExchangeRates.Models.csproj">
+      <Project>{3D94DFB8-E485-48E9-A844-49A52DD8E4A9}</Project>
+      <Name>ExchangeRates.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

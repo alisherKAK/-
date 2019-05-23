@@ -5,8 +5,42 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ExchangeRates.WpfApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="MainWindow" Height="450" Width="800"
+        SizeToContent="WidthAndHeight">
+    <Window.Resources>
+        <Style TargetType="Grid">
+            <Style.Setters>
+                <Setter Property="Background" Value="White"/>
+            </Style.Setters>
+        </Style>
+
+        <Style TargetType="DataGridRow">
+            <Style.Setters>
+                <Setter Property="Background" Value="#FFF59179"/>
+                <Setter Property="Foreground" Value="Black"/>
+                <Setter Property="FontWeight" Value="Bold"/>
+            </Style.Setters>
+        </Style>
+
+        <Style TargetType="Button">
+            <Style.Setters>
+                <Setter Property="Background" Value="Indigo"/>
+                <Setter Property="Foreground" Value="AntiqueWhite"/>
+            </Style.Setters>
+        </Style>
+    </Window.Resources>
+
+    <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="#FFFCF688">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="5*"/>
+        </Grid.RowDefinitions>
+        <DataGrid Name="exchangeRatesDataGrid" AutoGenerateColumns="False" Grid.Row="0" Margin="46,27,46,10">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Name}" Header="Название валюты"/>
+                <DataGridTextColumn Binding="{Binding Cost}" Header="Стоимость валюты по отношению к тенге"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Name="exchangeRatesUpdateButton" Padding="10" Click="ExchangeRatesUpdateButtonClick" Content="Update" Margin="291,23,322,13" Grid.Row="1" FontWeight="Bold" FontSize="16" Background="#FF55C9C6"/>
     </Grid>
 </Window>
